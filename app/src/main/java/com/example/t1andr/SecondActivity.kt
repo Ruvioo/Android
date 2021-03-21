@@ -10,15 +10,16 @@ class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
-        val initialFragment: SecondFragment = SecondFragment("A2F1")
+        val initialFragment: SecondFragment = SecondFragment("Activity 2 || Fragment 1")
         makeTransaction(initialFragment)
         arrayOfFragments.add(initialFragment)
         val continueButton: Button = findViewById(R.id.continue_button_second)
         continueButton.setOnClickListener {
             val currentPosition: Int = arrayOfFragments.size
             val nextPosition: Int = currentPosition + 1
-            val text: String = "A2F$nextPosition"
+            val text: String = "Activity 2 || Fragment $nextPosition"
             val nextFragment: SecondFragment = SecondFragment(text)
+
             arrayOfFragments.add(nextFragment)
             makeTransaction(arrayOfFragments[currentPosition])
         }
